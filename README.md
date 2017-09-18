@@ -52,6 +52,7 @@ Format of the 2 files which were formed after the dataset’s transformation
 
 # 3. Model
 The particularity of NEO4J is the fact that the design of the graph database is very flexible and it can completely adapt in the needs of each dataset. Thus, when designing the graph database we should take into consideration the nature of our dataset as well as the queries that we will need to perform.
+
 We designed a directed graph consisting of 2 types of nodes and 2 types of edges. More specifically, we used nodes to represent the crossroads. Each crossroad had 3 properties, the crossroad’s unique id and coordinates (longitude and latitude). Roads were represented by directed edges. ROAD edges linked pairs of CROSSROAD nodes and contained 3 properties, the road id, the length of the road and the number of POIs in each road. Nodes named POI_CATEGORY were also used to describe POIs. These nodes contained 2 properties, POI category id and POI category name. POI_CATEGORY nodes were linked to the starting node of the road which they belonged through directed edges named HAS_POI. HAS_POI edges contained information concerning the distance of each poi from the start node of the road where they belong.
 
 ![alt text](https://github.com/evagian/California-road-network-NEO4J-CYPHER-graph-and-queries/blob/master/images/6.png)
@@ -94,7 +95,9 @@ Figure 4 Final graph
 # 5. Queries
 ## 5.1. 1st query
 Which crossroad has the most points of interest and in which category do they belong (category name and number of pois for every category)? Sort them in descending order?
+
 During the first part of the query, for each CROSSROAD node we counted the number of HAS_POI edges starting from this CROSSROAD node. Then in the second part for each HAS_POI edge of every node we collected the category names of the connected POI nodes.
+
 We used COLLECT and UNWIND clauses in order to perform the union between the property category_name of POI node and the degree, or number of HAS_POI edges starting from each node. The 1st part returned a sorted list in descending order containing the node id and number of pois of this node. In the second part of the query we added the category name in the already sorted list of nodes with pois.
 
 ![alt text](https://github.com/evagian/California-road-network-NEO4J-CYPHER-graph-and-queries/blob/master/images/13.png)
@@ -103,6 +106,7 @@ We used COLLECT and UNWIND clauses in order to perform the union between the pro
 
 ## 5.2. 2nd query
 Which is the shortest path between crossroads with id:10 and id:16?
+
 This query calculates and returns the shortest path and the length of the shortest path between the 2 specified nodes. This query also answers the 3rd query, which asks ‘Find the total distance of the shortest path from query 2.’
 
 ![alt text](https://github.com/evagian/California-road-network-NEO4J-CYPHER-graph-and-queries/blob/master/images/15.png)
@@ -119,6 +123,7 @@ Find the total distance of the shortest path from query 2.
 
 ## 5.4. 4th query
 Find the top three crossroads with the most bars.
+
 We first had to find all the CROSSROAD nodes which were connected to at least one POI with category name ‘BAR’. For each of these CROSSROADS we counted the number of HAS_POI edges which lead to BAR POI. Finally, the query returned a list with the ids of these CROSSROAD node followed the count of BAR POIs. This list was ordered by the number of bars in descending order and only the first 3 rows were kept.
 
 ![alt text](https://github.com/evagian/California-road-network-NEO4J-CYPHER-graph-and-queries/blob/master/images/19.png)
@@ -127,6 +132,7 @@ We first had to find all the CROSSROAD nodes which were connected to at least on
 
 ## 5.5. 5th query
 Which is the shortest path between crossroads with id:10 and id:21 which passes through crossroad with id:17?
+
 This query calculates the shortest path between crossroads with id:10 and id:17 as path1 and crossroads with id:17 and id:21 as path2. It then calculates the sum of the lengths of path1 and path2 and names it as length. It sorts the results in length’s descending order and only keeps the first row which contains the shortest path between crossroads with id:10 and id:21 which passes through crossroad with id:17. Finally it prints the shortest path and its length.
 
 ![alt text](https://github.com/evagian/California-road-network-NEO4J-CYPHER-graph-and-queries/blob/master/images/21.png)
@@ -135,6 +141,7 @@ This query calculates the shortest path between crossroads with id:10 and id:17 
 
 ## 5.6. 6th query
 Find the five closest crossroads to the point with Latitude: 39 and Longitude: -123.
+
 We first defined a POINT with the given coordinates. Then we used the coordinates in order to calculate the Euclidean distance between all the CROSSROAD nodes and the given point with coordinates (39,-123). We then sorted the results by Euclidean distance and kept the top 5 rows which contained the five closest nodes to the point with Latitude: 39 and Longitude: -123.
 
 ![alt text](https://github.com/evagian/California-road-network-NEO4J-CYPHER-graph-and-queries/blob/master/images/23.png)
