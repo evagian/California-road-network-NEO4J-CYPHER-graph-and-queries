@@ -81,16 +81,19 @@ To match category names with category ids we used excel feature of vlookup to ma
 Next, we created nodes named POI and then we loaded has_poi.csv. POI nodes contained the category name and id in which the specified poi belongs. For matching POIs with start CROSSROADS we used the cat_id and start_node columns accordingly which were available in the file has_poi.csv. POI nodes were linked to the start nodes of the road in which they were located. This link was named HAS_POI and contained a property with the distance of the POI from the start node. We also added a new property to the ROAD relationship named number_of_poi, containing the number of POIs located in road of the relationship.
 
 ![alt text](https://github.com/evagian/California-road-network-NEO4J-CYPHER-graph-and-queries/blob/master/images/10.png)
-Figure 3 represents an example of how POI nodes were linked to the start CROSSROAD node of the ROAD relationship where they belong.
+
+Represents an example of how POI nodes were linked to the start CROSSROAD node of the ROAD relationship where they belong.
 
 ![alt text](https://github.com/evagian/California-road-network-NEO4J-CYPHER-graph-and-queries/blob/master/images/11.png)
-Figure 3 POI nodes and HAS_POI edges
+
+POI nodes and HAS_POI edges
 
 ## 4.4. Final graph
-Figure 3 represents a small part of the final graph which was created in NEO4J.
+A small part of the final graph which was created in NEO4J.
 
 ![alt text](https://github.com/evagian/California-road-network-NEO4J-CYPHER-graph-and-queries/blob/master/images/12.png)
-Figure 4 Final graph
+
+Final graph
 
 # 5. Queries
 ## 5.1. 1st query
