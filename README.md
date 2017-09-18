@@ -36,7 +36,9 @@ Finally, this file links the file containing the points of interest to the one c
 File format before transformation
 For each edge: 
 Start Node ID, End Node ID, Number of Points on This Edge, Edge Length. 
+    
     For each point on this edge: 
+    
     Category ID, Distance of This Point to the Start Node of This Edge
 
 ![alt text](https://github.com/evagian/California-road-network-NEO4J-CYPHER-graph-and-queries/blob/master/images/5.png)
@@ -46,8 +48,11 @@ The format of this file was tricky and we had to transform it into two files in 
 Format of the 2 files which were formed after the dataset’s transformation
 
 ● For each POI:
+  
   ○ Edge Start Node Id , Category id , Distance
+  
 ● For each number of Points of interest per road :
+ 
   ○ Edge Start Node Id , Edge End Node Id, Number of Pois
 
 # 3. Model
