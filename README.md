@@ -9,9 +9,9 @@ California Road Network's Nodes and can be found here:
 
 https://www.cs.utah.edu/~lifeifei/SpatialDataset.htm
 
-This file contains crossroads which are characterized by their unique id, and their coordinates.
-
 ## California Road Network's Nodes
+
+This file contains crossroads which are characterized by their unique id, and their coordinates.
 
 ![alt text](https://github.com/evagian/California-road-network-NEO4J-CYPHER-graph-and-queries/blob/master/images/1.png)
 
