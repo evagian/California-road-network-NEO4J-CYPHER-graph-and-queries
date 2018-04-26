@@ -156,4 +156,3 @@ We first defined a POINT with the given coordinates. Then we used the coordinate
 
 ![alt text](https://github.com/evagian/California-road-network-NEO4J-CYPHER-graph-and-queries/blob/master/images/24.png)
 
-![alt text](https://github.com/evagian/California-road-network-NEO4J-CYPHER-graph-and-queries/blob/master/images/25.png)
