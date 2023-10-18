@@ -1,6 +1,6 @@
 import csv
 
-file_path='C:/Users/anu/Documents/Neo4j/assignment/import/mapping.csv'    
+file_path='./mapping.csv'    
 has_poi=0
 with open(file_path, 'r') as f:
     with open('has_number_of_poi.csv', 'w',newline='') as csvfile:
