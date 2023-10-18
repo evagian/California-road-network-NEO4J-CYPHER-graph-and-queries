@@ -1,6 +1,6 @@
 import csv
 
-file_path='mapping.csv'    
+file_path='./mapping.csv'    
 has_poi=0
 start_node_id='0'
 with open(file_path, 'r') as f:
